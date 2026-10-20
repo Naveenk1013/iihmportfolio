@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 8080;
-const BASE_DIR = __dirname;
+const BASE_DIR = path.join(__dirname, '..');
 
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
@@ -19,6 +19,7 @@ const MIME_TYPES = {
   '.mp4': 'video/mp4',
   '.mov': 'video/quicktime'
 };
+
 const server = http.createServer((req, res) => {
   let reqPath = decodeURI(req.url.split('?')[0]);
   const knownFacultyRoutes = ['director', 'earnest-immanuel', 'naveen-kumar'];

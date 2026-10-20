@@ -52,14 +52,15 @@ Portfolio/
 ├── index.html              # Main HTML5 entry point with semantic accessibility & base routing
 ├── style.css               # Core luxury design system, responsive breakpoints & fluid tokens
 ├── SpotlightCard.css       # Dynamic cursor spotlight effect stylesheet
-├── app.js                  # Master controller: profile hydration, faculty switcher & modal logic
-├── globe.js                # CesiumJS 3D Earth, camera paths, campus pins & audio engine
-├── server.js               # Lightweight local Node.js development server
 ├── vercel.json             # Static SPA rewrite configuration for Vercel Edge CDN
 ├── _redirects              # SPA rewrite rule for Netlify deployments
 ├── .vercelignore           # Excludes local server scripts from serverless builds
+├── scripts/
+│   └── dev-server.js       # Local Node.js preview server
 ├── public/
 │   ├── js/
+│   │   ├── app.js              # Master controller: profile hydration, faculty switcher & modal logic
+│   │   ├── globe.js            # CesiumJS 3D Earth, camera paths, campus pins & audio engine
 │   │   ├── faculty-data.js     # Faculty database, profiles, credentials & curriculum
 │   │   ├── card-textures.js    # Canvas badge texture generator (front/back/strap)
 │   │   ├── lanyard.js          # Three.js Verlet constraint physics 3D lanyard component
@@ -79,7 +80,7 @@ Portfolio/
 ## 🚀 Local Development
 
 ### Prerequisites
-* [Node.js](https://nodejs.org/) (v16.0 or higher recommended)
+* [Node.js](https://nodejs.org/) (optional, only for running local preview server)
 
 ### Quick Start
 ```bash
@@ -88,8 +89,7 @@ git clone https://github.com/Naveenk1013/iihmportfolio.git
 cd iihmportfolio
 
 # 2. Start the local server
-npm run dev
-# or: node server.js
+node scripts/dev-server.js
 
 # 3. Open in browser
 # Navigate to http://localhost:8080/
