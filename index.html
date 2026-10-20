@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <base href="/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <meta name="theme-color" content="#050b18">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Mr. Naveen Kumar | Faculty - Rooms Division | IIHM Hyderabad</title>
+  <meta name="description"
+    content="Official academic portfolio of Mr. Naveen Kumar, Faculty of Rooms Division at International Institute of Hotel Management (IIHM) Hyderabad. Discover curriculum, simulation labs, industry credentials, and mentorship.">
+  <meta name="keywords"
+    content="Naveen Kumar, IIHM Hyderabad, Rooms Division, Hotel Management, Front Office, Housekeeping, Hospitality Education">
+  <meta name="author" content="IIHM Hyderabad">
+
+  <!-- Favicon / Official IIHM Crest Logo -->
+  <link rel="icon" type="image/png" sizes="32x32" href="public/images/iihm_official_logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="public/images/iihm_official_logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="public/images/iihm_official_logo.png">
+  <link rel="shortcut icon" type="image/png" href="public/images/iihm_official_logo.png">
+
+  <!-- Google Fonts: Luxury Serif & Modern Clean Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- FontAwesome for hospitality and navigation icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="SpotlightCard.css">
+
+  <!-- CesiumJS for 3D Geospatial Globe -->
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.119/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.119/Build/Cesium/Cesium.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+</head>
+
+<body>
+
+  <!-- ========================================================= -->
+  <!-- 1. CINEMATIC 3D GLOBE TO IIHM LOGO INTRO EXPERIENCE      -->
+  <!-- ========================================================= -->
+  <div id="intro-overlay" class="intro-overlay">
+    <!-- Background Space Canvas -->
+    <div id="globe-container" class="globe-container"></div>
+
+    <!-- UI Overlay for Intro Controls -->
+    <header class="intro-header">
+      <div class="intro-brand">
+        <span class="gold-badge"><i class="fa-solid fa-crown"></i> IIHM HYDERABAD</span>
+        <h1 class="intro-subhead">Connecting World-Class Hospitality Campuses Across Continents</h1>
+      </div>
+      <div class="intro-actions">
+        <button id="skip-intro-btn" class="btn btn-gold btn-mobile-compact"
+          aria-label="Skip Introduction and Enter Portfolio">
+          <span>Enter Portfolio</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- Floating Interactive Campus SpotlightCard (React Bits Engine) -->
+    <div id="campus-card" class="spotlight-card campus-card" aria-live="polite" data-spotlight="emerald">
+      <span class="spotlight-card__light" aria-hidden="true"></span>
+      <span class="spotlight-card__grain" aria-hidden="true"></span>
+      <span class="spotlight-card__border" aria-hidden="true"></span>
+      <span class="spotlight-card__edge" aria-hidden="true"></span>
+
+      <div class="campus-card-content">
+        <div class="campus-card-header">
+          <div class="campus-tag-group">
+            <span class="campus-tag" id="campus-tag">Campus Leadership</span>
+            <span class="campus-live-badge"><span class="pulse-dot"></span> PINNED</span>
+          </div>
+          <button id="close-campus-card" class="btn-icon" aria-label="Close campus spotlight card">&times;</button>
+        </div>
+
+        <div class="campus-brand-row">
+          <img src="public/images/iihm_official_logo.png" alt="IIHM Official Emblem" class="campus-card-crest">
+          <div class="campus-brand-info">
+            <h3 id="campus-name">IIHM Hyderabad</h3>
+            <span id="campus-city" class="campus-city-text"><i class="fa-solid fa-location-dot"></i> Hyderabad,
+              Telangana</span>
+          </div>
+        </div>
+
+        <p id="campus-desc">Premier international hospitality campus featuring world-class training suites, Executive
+          Reception PMS workstations, and global university accreditations.</p>
+
+        <div class="campus-meta" id="campus-meta">
+          <div class="campus-director-badge">
+            <div class="director-header-line">
+              <span class="dir-badge-pill"><i class="fa-solid fa-crown"></i> Campus Leadership</span>
+            </div>
+            <a href="https://www.linkedin.com/in/earnest-immanuel-johnpaul-b0312077/" target="_blank"
+              rel="noopener noreferrer" class="director-link-box" title="View Earnest Immanuel Johnpaul on LinkedIn">
+              <div class="dir-avatar-icon"><i class="fa-brands fa-linkedin"></i></div>
+              <div class="dir-text-wrap">
+                <span class="dir-name">Earnest Immanuel Johnpaul</span>
+                <span class="dir-title">Director, International Institute of Hotel Management (IIHM) Hyderabad</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square dir-ext-icon"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="campus-card-footer">
+          <a href="tel:07995581756" class="btn btn-gold btn-sm campus-call-btn" id="campus-call-action"
+            title="Call IIHM Hyderabad Campus Office">
+            <i class="fa-solid fa-phone"></i>
+            <span>07995581756</span>
+          </a>
+          <button class="btn btn-glass btn-sm" id="campus-fly-btn" title="Focus camera on this location">
+            <i class="fa-solid fa-location-crosshairs"></i>
+            <span>Focus Pin</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Campus Ticker & Mobile Quick Select Bar -->
+    <div class="intro-footer">
+      <div class="campus-counter">
+        <div class="counter-ring">
+          <span class="pulse-dot"></span>
+          <strong>12+</strong>
+        </div>
+        <div class="ticker-text-wrapper">
+          <span class="label-upper">Tap Campus to Fly 3D Globe</span>
+          <div class="campus-pills-scroll" id="campus-pills-container">
+            <button class="campus-pill active" data-campus="hyderabad"><i class="fa-solid fa-star"></i>
+              Hyderabad</button>
+            <button class="campus-pill" data-campus="singapore"><i class="fa-solid fa-graduation-cap"></i>
+              Singapore</button>
+            <button class="campus-pill" data-campus="london">London (UK)</button>
+            <button class="campus-pill" data-campus="bangkok">Bangkok</button>
+            <button class="campus-pill" data-campus="samarkand">Samarkand</button>
+            <button class="campus-pill" data-campus="kolkata">Kolkata</button>
+            <button class="campus-pill" data-campus="delhi">Delhi</button>
+            <button class="campus-pill" data-campus="bangalore">Bangalore</button>
+            <button class="campus-pill" data-campus="pune">Pune</button>
+            <button class="campus-pill" data-campus="goa">Goa</button>
+            <button class="campus-pill" data-campus="jaipur">Jaipur</button>
+            <button class="campus-pill" data-campus="ahmedabad">Ahmedabad</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Revealed Emblem Screen during Morph -->
+    <div id="logo-morph-stage" class="logo-morph-stage">
+      <div class="emblem-wrapper">
+        <div class="emblem-halo"></div>
+        <div class="gold-flare"></div>
+        <img src="public/images/iihm_official_logo.png" alt="IIHM Official Logo" class="revealed-crest"
+          id="revealed-crest">
+        <div class="emblem-text-reveal">
+          <span class="emblem-motto">INTERNATIONAL INSTITUTE OF HOTEL MANAGEMENT</span>
+          <h2 class="emblem-title">HYDERABAD CAMPUS</h2>
+          <div class="gold-divider"></div>
+          <p class="emblem-faculty-badge" id="emblem-faculty-badge">Faculty Academic Directory • Rooms Division</p>
+          <button id="proceed-to-portfolio" class="btn btn-gold proceed-btn">
+            <span id="proceed-btn-label">Explore Mr. Naveen Kumar's Profile</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- 2. MAIN FACULTY PORTFOLIO CONTENT                        -->
+  <!-- ========================================================= -->
+  <div id="portfolio-app" class="portfolio-app hidden">
+
+    <!-- Global Navigation -->
+    <nav class="navbar glass-navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#hero" class="nav-brand">
+          <img src="public/images/iihm_official_logo.png" alt="IIHM Official Logo" class="nav-crest">
+          <div class="nav-brand-text">
+            <span class="nav-institution">IIHM HYDERABAD</span>
+            <span class="nav-faculty-title">Faculty Presence</span>
+          </div>
+        </a>
+
+        <div class="nav-links">
+          <a href="#overview" class="nav-link">Overview</a>
+          <a href="#labs" class="nav-link">Executive Labs</a>
+          <a href="#contact" class="nav-link">Office Connect</a>
+        </div>
+
+        <div class="nav-cta-group">
+          <!-- Faculty Profile Switcher Dropdown -->
+          <div class="faculty-switcher-wrapper" id="faculty-switcher-wrapper">
+            <button id="faculty-switcher-btn" class="btn btn-glass btn-sm faculty-switcher-trigger" type="button"
+              aria-haspopup="true" aria-expanded="false" title="Switch Faculty Portfolio">
+              <img id="nav-active-avatar" src="public/images/naveen_kumar.jpg" alt="" class="nav-mini-avatar">
+              <span id="nav-active-name" class="nav-active-name">Mr. Naveen Kumar</span>
+              <i class="fa-solid fa-chevron-down nav-caret"></i>
+            </button>
+            <div id="faculty-switcher-menu" class="faculty-switcher-menu glass-panel" role="menu">
+              <div class="switcher-header">
+                <span class="switcher-kicker"><i class="fa-solid fa-users"></i> IIHM HYDERABAD DIRECTORY</span>
+                <span class="switcher-sub">Switch verified faculty portfolio:</span>
+              </div>
+              <button type="button" class="switcher-item" data-faculty-id="earnest-immanuel" role="menuitem">
+                <img src="public/images/earnest_immanuel.jpg" alt="Earnest Immanuel Johnpaul" class="switcher-avatar">
+                <div class="switcher-text">
+                  <div class="switcher-name">Earnest Immanuel Johnpaul <span
+                      class="switcher-badge-director">Director</span></div>
+                  <div class="switcher-role">Campus Director & Beverage Specialist</div>
+                </div>
+                <i class="fa-solid fa-check switcher-active-check"></i>
+              </button>
+              <button type="button" class="switcher-item" data-faculty-id="naveen-kumar" role="menuitem">
+                <img src="public/images/naveen_kumar.jpg" alt="Mr. Naveen Kumar" class="switcher-avatar">
+                <div class="switcher-text">
+                  <div class="switcher-name">Mr. Naveen Kumar <span class="switcher-badge-faculty">Faculty</span></div>
+                  <div class="switcher-role">Rooms Division & Front Office Specialist</div>
+                </div>
+                <i class="fa-solid fa-check switcher-active-check"></i>
+              </button>
+            </div>
+          </div>
+
+          <button id="replay-globe-btn" class="btn btn-outline-gold btn-sm nav-btn-globe" title="Return to 3D Globe Homepage" aria-label="Return to 3D Globe Homepage">
+            <i class="fa-solid fa-earth-americas"></i>
+            <span class="nav-btn-label">3D Globe</span>
+          </button>
+          <a href="#contact" class="btn btn-gold btn-sm nav-btn-inquire">
+            <i class="fa-solid fa-envelope"></i>
+            <span class="nav-btn-label">Inquire</span>
+          </a>
+
+          <!-- Mobile Hamburger Menu Button -->
+          <button id="mobile-menu-toggle" class="btn-icon mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav-drawer">
+            <span class="hamburger-box">
+              <span class="hamburger-inner"></span>
+            </span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Navigation Drawer Overlay & Panel -->
+    <div id="mobile-nav-backdrop" class="mobile-nav-backdrop" aria-hidden="true"></div>
+    <aside id="mobile-nav-drawer" class="mobile-nav-drawer glass-panel" aria-hidden="true" role="dialog" aria-label="Mobile Navigation Menu">
+      <div class="drawer-header">
+        <div class="drawer-brand">
+          <img src="public/images/iihm_official_logo.png" alt="IIHM Official Crest" class="drawer-crest">
+          <div class="drawer-brand-text">
+            <span class="drawer-brand-name">IIHM HYDERABAD</span>
+            <span class="drawer-brand-tag">Academic Directory</span>
+          </div>
+        </div>
+        <button id="close-mobile-menu-btn" class="btn-icon drawer-close-btn" type="button" aria-label="Close navigation menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="drawer-body">
+        <!-- Active Faculty Card in Mobile Drawer -->
+        <div class="drawer-faculty-card">
+          <div class="drawer-faculty-avatar-wrap">
+            <img id="drawer-active-avatar" src="public/images/naveen_kumar.jpg" alt="" class="drawer-faculty-avatar">
+            <span class="drawer-verified-dot" title="Verified Faculty"></span>
+          </div>
+          <div class="drawer-faculty-info">
+            <span class="drawer-faculty-kicker">Active Portfolio</span>
+            <strong id="drawer-active-name" class="drawer-faculty-name">Mr. Naveen Kumar</strong>
+            <span id="drawer-active-role" class="drawer-faculty-role">Rooms Division Faculty • IIHM</span>
+          </div>
+        </div>
+
+        <!-- Faculty Quick Switch Section inside Drawer -->
+        <div class="drawer-section">
+          <span class="drawer-section-label"><i class="fa-solid fa-users"></i> Switch Verified Portfolio</span>
+          <div class="drawer-switcher-list">
+            <button type="button" class="drawer-switcher-item switcher-item" data-faculty-id="earnest-immanuel">
+              <img src="public/images/earnest_immanuel.jpg" alt="Earnest Immanuel Johnpaul" class="drawer-switcher-avatar">
+              <div class="drawer-switcher-text">
+                <span class="drawer-switcher-name">Earnest Immanuel Johnpaul <span class="switcher-badge-director">Director</span></span>
+                <span class="drawer-switcher-sub">Campus Director & Beverage Specialist</span>
+              </div>
+              <i class="fa-solid fa-check drawer-check-icon switcher-active-check"></i>
+            </button>
+            <button type="button" class="drawer-switcher-item switcher-item" data-faculty-id="naveen-kumar">
+              <img src="public/images/naveen_kumar.jpg" alt="Mr. Naveen Kumar" class="drawer-switcher-avatar">
+              <div class="drawer-switcher-text">
+                <span class="drawer-switcher-name">Mr. Naveen Kumar <span class="switcher-badge-faculty">Faculty</span></span>
+                <span class="drawer-switcher-sub">Rooms Division & Front Office Specialist</span>
+              </div>
+              <i class="fa-solid fa-check drawer-check-icon switcher-active-check"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Primary Navigation Links inside Drawer -->
+        <div class="drawer-section">
+          <span class="drawer-section-label"><i class="fa-solid fa-compass"></i> Portfolio Sections</span>
+          <nav class="drawer-nav-list">
+            <a href="#hero" class="drawer-nav-link">
+              <i class="fa-solid fa-user-tie"></i>
+              <span>Faculty Profile & 3D ID</span>
+              <i class="fa-solid fa-chevron-right drawer-chevron"></i>
+            </a>
+            <a href="#overview" class="drawer-nav-link">
+              <i class="fa-solid fa-graduation-cap"></i>
+              <span>Academic Overview</span>
+              <i class="fa-solid fa-chevron-right drawer-chevron"></i>
+            </a>
+            <a href="#labs" class="drawer-nav-link">
+              <i class="fa-solid fa-hotel"></i>
+              <span>Executive Simulation Labs</span>
+              <i class="fa-solid fa-chevron-right drawer-chevron"></i>
+            </a>
+            <a href="#contact" class="drawer-nav-link">
+              <i class="fa-solid fa-address-book"></i>
+              <span>Office Connect & Hotlines</span>
+              <i class="fa-solid fa-chevron-right drawer-chevron"></i>
+            </a>
+          </nav>
+        </div>
+
+        <!-- Drawer Quick Actions -->
+        <div class="drawer-section drawer-actions-section">
+          <button id="drawer-view-dossier-btn" class="btn btn-outline-gold btn-block" type="button">
+            <i class="fa-solid fa-file-lines"></i>
+            <span>View Faculty Dossier</span>
+          </button>
+          <button id="drawer-replay-globe-btn" class="btn btn-glass btn-block" type="button">
+            <i class="fa-solid fa-earth-americas"></i>
+            <span>3D Geospatial Globe Map</span>
+          </button>
+          <a href="tel:07995581756" class="btn btn-gold btn-block">
+            <i class="fa-solid fa-phone"></i>
+            <span>Call IIHM Office (07995581756)</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <!-- HERO SECTION -->
+      <section id="hero" class="hero-section">
+        <div class="hero-backdrop-glow"></div>
+        <div class="container hero-grid">
+
+          <!-- Faculty Details Column -->
+          <div class="hero-content">
+            <div class="faculty-tag-pill">
+              <span class="badge-dot"></span>
+              <span id="faculty-tag-text">SENIOR FACULTY • DEPARTMENT OF ROOMS DIVISION</span>
+            </div>
+
+            <h1 class="faculty-name" id="faculty-name">Mr. Naveen Kumar</h1>
+            <p class="faculty-role-title" id="faculty-role-title">Lecturer & Subject Matter Specialist in Rooms
+              Division, Front Office Dynamics & Luxury Accommodation Management</p>
+
+            <p class="hero-bio" id="hero-bio">
+              Guiding next-generation global hoteliers at <strong>IIHM Hyderabad</strong>. Dedicated to blending
+              operational rigour, Property Management Systems mastery, luxury guest etiquette, and revenue-driven room
+              inventory strategies.
+            </p>
+
+            <!-- Quick Contacts & Credentials -->
+            <div class="hero-contact-ribbon glass-panel">
+              <div class="ribbon-item">
+                <i class="fa-solid fa-envelope-open-text gold-icon"></i>
+                <div>
+                  <span class="ribbon-label">Official Academic Email</span>
+                  <a href="mailto:naveen.kumar@iihmhyderabad.com" class="ribbon-val link-hover"
+                    id="hero-email-val">naveen.kumar@iihmhyderabad.com</a>
+                </div>
+              </div>
+              <div class="ribbon-divider"></div>
+              <div class="ribbon-item">
+                <i class="fa-solid fa-location-dot gold-icon"></i>
+                <div>
+                  <span class="ribbon-label">Academic Campus</span>
+                  <span class="ribbon-val" id="hero-campus-val">IIHM Hyderabad, Telangana</span>
+                </div>
+              </div>
+              <div class="ribbon-divider"></div>
+              <div class="ribbon-item">
+                <i class="fa-solid fa-phone-volume gold-icon"></i>
+                <div>
+                  <span class="ribbon-label">Personal Line</span>
+                  <a href="tel:8920492908" class="ribbon-val link-hover" id="hero-phone-val">8920492908</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hero Action Buttons -->
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-gold">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Schedule Academic Consultation</span>
+              </a>
+              <button id="view-dossier-btn" class="btn btn-glass">
+                <i class="fa-solid fa-file-lines"></i>
+                <span>View Faculty Dossier</span>
+              </button>
+            </div>
+
+            <!-- Hero Quick Social Connect -->
+            <div class="hero-social-strip">
+              <span class="hero-social-label">IIHM Channels:</span>
+              <div class="hero-social-pills">
+                <a href="https://www.instagram.com/iihmhyderabad/?hl=en" target="_blank" rel="noopener noreferrer"
+                  class="hero-social-chip" title="IIHM Hyderabad Instagram">
+                  <svg class="chip-svg" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                    <defs>
+                      <radialGradient id="hero-ig-grad" cx="0.18" cy="1" r="1.18">
+                        <stop offset="0%" stop-color="#ffd521" />
+                        <stop offset="10%" stop-color="#f5a200" />
+                        <stop offset="35%" stop-color="#f02849" />
+                        <stop offset="65%" stop-color="#c13584" />
+                        <stop offset="100%" stop-color="#833ab4" />
+                      </radialGradient>
+                    </defs>
+                    <rect x="1.5" y="1.5" width="21" height="21" rx="5.8" fill="url(#hero-ig-grad)" />
+                    <rect x="4.5" y="4.5" width="15" height="15" rx="3.8" fill="none" stroke="#ffffff"
+                      stroke-width="1.8" />
+                    <circle cx="12" cy="12" r="3.75" fill="none" stroke="#ffffff" stroke-width="1.8" />
+                    <circle cx="16.5" cy="7.5" r="1.15" fill="#ffffff" />
+                  </svg>
+                  <span>Instagram</span>
+                </a>
+                <a href="https://www.youtube.com/hashtag/iihmhyderabad" target="_blank" rel="noopener noreferrer"
+                  class="hero-social-chip" title="IIHM Hyderabad YouTube">
+                  <svg class="chip-svg" viewBox="0 0 28 20" width="18" height="13" aria-hidden="true">
+                    <path
+                      d="M27.42 3.08a3.5 3.5 0 0 0-2.46-2.47C22.78 0 14 0 14 0S5.22 0 3.04.61A3.5 3.5 0 0 0 .58 3.08C0 5.27 0 10 0 10s0 4.73.58 6.92a3.5 3.5 0 0 0 2.46 2.47C5.22 20 14 20 14 20s8.78 0 10.96-.61a3.5 3.5 0 0 0 2.46-2.47C28 14.73 28 10 28 10s0-4.73-.58-6.92z"
+                      fill="#FF0000" />
+                    <polygon points="11.2,14.3 18.5,10 11.2,5.7" fill="#FFFFFF" />
+                  </svg>
+                  <span>YouTube</span>
+                </a>
+                <a href="https://iihm.ac.in/hyderabad-campus" target="_blank" rel="noopener noreferrer"
+                  class="hero-social-chip" title="IIHM Hyderabad Official Website">
+                  <img src="public/images/iihm_official_logo.png" alt="IIHM Emblem" class="chip-crest">
+                  <span>Campus Portal</span>
+                </a>
+                <a href="https://maps.app.goo.gl/VcxRrhtAaQmZ6JaG7" target="_blank" rel="noopener noreferrer"
+                  class="hero-social-chip" title="IIHM Hyderabad Google Maps Location">
+                  <svg class="chip-svg" viewBox="0 0 32 44" width="14" height="19" aria-hidden="true">
+                    <path
+                      d="M16 0C7.16 0 0 7.16 0 16c0 12.06 14.37 26.65 15.02 27.29a1.4 1.4 0 0 0 1.96 0C17.63 42.65 32 28.06 32 16 32 7.16 24.84 0 16 0z"
+                      fill="#EA4335" />
+                    <path d="M16 0C7.16 0 0 7.16 0 16c0 3.86 1.38 7.41 3.7 10.18L16 12.2V0z" fill="#4285F4" />
+                    <path d="M3.7 26.18C6.1 29.98 9.5 34.52 16 41.5V26.18H3.7z" fill="#34A853" />
+                    <path d="M28.3 26.18C25.9 29.98 22.5 34.52 16 41.5V26.18h12.3z" fill="#FBBC04" />
+                    <circle cx="16" cy="15" r="5.5" fill="#FFFFFF" />
+                    <circle cx="16" cy="15" r="3" fill="#1A73E8" />
+                  </svg>
+                  <span>Google Maps</span>
+                </a>
+                <a href="https://www.linkedin.com/in/naveen-kumar-8a40bb170" target="_blank" rel="noopener noreferrer"
+                  class="hero-social-chip" id="hero-linkedin-chip" title="Connect on LinkedIn">
+                  <svg class="chip-svg" viewBox="0 0 24 24" width="15" height="15" fill="#0A66C2" aria-hidden="true">
+                    <path
+                      d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                      fill="#0A66C2" />
+                  </svg>
+                  <span id="hero-linkedin-label">LinkedIn</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Faculty 3D Lanyard Interactive Stage -->
+          <div class="hero-media-wrapper">
+            <div class="portrait-halo"></div>
+            <div class="lanyard-stage-card glass-panel">
+              <!-- Lanyard 3D Canvas Container -->
+              <div id="lanyard-container" class="lanyard-container">
+                <div class="lanyard-loading-indicator">
+                  <div class="spinner-gold"></div>
+                  <span>Rendering 3D Faculty ID...</span>
+                </div>
+              </div>
+
+              <!-- Interactive Hint & Controls Badge -->
+              <div class="lanyard-control-bar">
+                <div class="lanyard-hint">
+                  <i class="fa-solid fa-hand-pointer"></i>
+                  <span>Drag • Toss • Click to Flip</span>
+                </div>
+                <button id="lanyard-flip-btn" class="btn-flip-badge" type="button"
+                  title="Flip Card to View Institutional Credentials" aria-label="Flip Badge">
+                  <i class="fa-solid fa-arrows-rotate"></i> Flip ID
+                </button>
+              </div>
+
+              <!-- Faculty Verified Stamp Bar -->
+              <div class="portrait-meta-badge">
+                <div class="portrait-crest-stamp">
+                  <img src="public/images/iihm_official_logo.png" alt="IIHM Official Logo">
+                </div>
+                <div>
+                  <strong id="lanyard-meta-name">Mr. Naveen Kumar</strong>
+                  <span id="lanyard-meta-role">Rooms Division Faculty • IIHM</span>
+                </div>
+                <div class="status-verified" title="Verified IIHM Academic Profile">
+                  <i class="fa-solid fa-circle-check"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- DEPARTMENT & OVERVIEW SECTION -->
+      <section id="overview" class="section overview-section">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="section-kicker" id="overview-kicker">ACADEMIC FOUNDATION</span>
+            <h2 class="section-title" id="overview-title">The Rooms Division Discipline</h2>
+            <div class="gold-line center"></div>
+            <p class="section-subtitle" id="overview-subtitle">
+              The Rooms Division is the financial engine and heartbeat of any luxury hotel property, encompassing Front
+              Desk leadership, Concierge, Guest Relations, and Executive Housekeeping.
+            </p>
+          </div>
+
+          <div class="philosophy-grid" id="philosophy-grid">
+            <div class="philosophy-card glass-panel">
+              <div class="card-icon gold-badge"><i class="fa-solid fa-bell-concierge"></i></div>
+              <h3>Front Office Excellence</h3>
+              <p>
+                From check-in orchestration to high-stakes guest recovery, training students to personify flawless
+                poise, cultural empathy, and proactive guest delight.
+              </p>
+              <ul class="bullet-list">
+                <li><i class="fa-solid fa-check gold-text"></i> VIP Protocol & High-Profile Arrival Staging</li>
+                <li><i class="fa-solid fa-check gold-text"></i> Property Management Systems (Opera PMS / Fidelio)</li>
+                <li><i class="fa-solid fa-check gold-text"></i> Dynamic Room Upselling & Revenue Optimization</li>
+              </ul>
+            </div>
+
+            <div class="philosophy-card glass-panel">
+              <div class="card-icon gold-badge"><i class="fa-solid fa-bed"></i></div>
+              <h3>Accommodation Operations</h3>
+              <p>
+                Instilling the rigorous international standards of luxury suites, hygiene microbiology, linen science,
+                and sustainable hotel practices.
+              </p>
+              <ul class="bullet-list">
+                <li><i class="fa-solid fa-check gold-text"></i> Presidential Suite Inspection & Turn-Down Protocols</li>
+                <li><i class="fa-solid fa-check gold-text"></i> Eco-certified Cleaning & Fabric Care Science</li>
+                <li><i class="fa-solid fa-check gold-text"></i> Room Inventory Audits & Preventive Maintenance</li>
+              </ul>
+            </div>
+
+            <div class="philosophy-card glass-panel">
+              <div class="card-icon gold-badge"><i class="fa-solid fa-chart-line"></i></div>
+              <h3>Revenue & Yield Dynamics</h3>
+              <p>
+                Bridging operational charm with analytical decision-making to maximize RevPAR (Revenue Per Available
+                Room) and Average Daily Rate (ADR).
+              </p>
+              <ul class="bullet-list">
+                <li><i class="fa-solid fa-check gold-text"></i> RevPAR, TrevPAR & GOPPAR Analytics</li>
+                <li><i class="fa-solid fa-check gold-text"></i> Demand Forecasting & Overbooking Risk Balancing</li>
+                <li><i class="fa-solid fa-check gold-text"></i> Online Travel Agency (OTA) Channel Management</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXECUTIVE TRAINING LABS (PHOTO SHOWCASE) -->
+      <section id="labs" class="section labs-section">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-kicker">WORLD-CLASS INFRASTRUCTURE</span>
+            <h2 class="section-title" id="labs-title">IIHM Hyderabad Simulation Labs</h2>
+            <div class="gold-line"></div>
+            <p class="section-subtitle" id="labs-subtitle">
+              Where Mr. Naveen Kumar mentors students in authentic 5-star hotel operational spaces right on the
+              Hyderabad campus.
+            </p>
+          </div>
+
+          <div class="labs-showcase-grid" id="labs-showcase-grid">
+
+            <!-- Lab 1: Front Desk Lab -->
+            <div class="lab-card glass-panel">
+              <div class="lab-image-container">
+                <img src="public/images/rooms_division_lab.jpg" alt="IIHM Hyderabad Executive Reception Training Lab"
+                  class="lab-img">
+                <div class="lab-overlay">
+                  <span class="lab-badge">Live Operational Lab</span>
+                </div>
+              </div>
+              <div class="lab-info">
+                <div class="lab-title-row">
+                  <h3>Executive Reception & PMS Terminal Lab</h3>
+                  <span class="lab-capacity"><i class="fa-solid fa-desktop"></i> 24 Terminals</span>
+                </div>
+                <p>
+                  Equipped with professional PMS workstations running industry-standard software, complete with keycard
+                  encoding machines, cashiers' banks, and arrival desks.
+                </p>
+                <div class="lab-features">
+                  <span>Opera Cloud Simulator</span>
+                  <span>Check-in Roleplay</span>
+                  <span>Currency Exchange Protocols</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Lab 2: Suite & Accommodation Lab -->
+            <div class="lab-card glass-panel">
+              <div class="lab-image-container">
+                <img src="public/images/housekeeping_suite_lab.jpg" alt="IIHM Hyderabad Accommodation Training Lab"
+                  class="lab-img">
+                <div class="lab-overlay">
+                  <span class="lab-badge">Suite Simulation</span>
+                </div>
+              </div>
+              <div class="lab-info">
+                <div class="lab-title-row">
+                  <h3>Presidential Suite & Accommodation Lab</h3>
+                  <span class="lab-capacity"><i class="fa-solid fa-couch"></i> 5-Star Mock Suite</span>
+                </div>
+                <p>
+                  A meticulously designed replica of a five-star hotel master suite for training in bed making
+                  standards, VIP amenities staging, turndown service, and white-glove inspections.
+                </p>
+                <div class="lab-features">
+                  <span>White-Glove Audits</span>
+                  <span>Fabric & Fiber Chemistry</span>
+                  <span>Luxury Flower Arrangement</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ACADEMIC QUOTE & TESTIMONIAL BANNER -->
+      <section class="quote-banner">
+        <div class="container quote-container glass-panel">
+          <div class="quote-symbol"><i class="fa-solid fa-quote-left"></i></div>
+          <blockquote class="faculty-quote" id="faculty-quote-text">
+            "In luxury hospitality, a hotel room is not merely an accommodation; it is a sanctum of well-being and
+            privacy. Our duty at IIHM Hyderabad is to teach students that true excellence lies in noticing the unspoken
+            preferences of every guest."
+          </blockquote>
+          <div class="quote-author">
+            <span class="author-name" id="quote-author-name">Mr. Naveen Kumar</span>
+            <span class="author-title" id="quote-author-title">Faculty — Rooms Division | IIHM Hyderabad</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT & INQUIRY SECTION -->
+      <section id="contact" class="section contact-section">
+        <div class="container">
+          <div class="section-header text-center">
+            <span class="section-kicker">ACADEMIC CONNECT</span>
+            <h2 class="section-title" id="contact-title">Connect with Mr. Naveen Kumar</h2>
+            <div class="gold-line center"></div>
+            <p class="section-subtitle" id="contact-subtitle">
+              Reach out for student academic advisement, guest lectures, curriculum research, or hospitality industry
+              collaboration.
+            </p>
+          </div>
+
+          <div class="contact-wrapper glass-panel">
+            <div class="contact-info-col">
+              <h3>Faculty Office Details</h3>
+              <p>Feel free to reach out via official IIHM institutional communication channels.</p>
+
+              <div class="contact-detail-card">
+                <div class="c-icon gold-badge"><i class="fa-solid fa-envelope"></i></div>
+                <div>
+                  <span class="c-label">Official Email</span>
+                  <a href="mailto:naveen.kumar@iihmhyderabad.com" class="c-val gold-link"
+                    id="contact-email-link">naveen.kumar@iihmhyderabad.com</a>
+                </div>
+              </div>
+
+              <div class="contact-detail-card">
+                <div class="c-icon gold-badge"><i class="fa-solid fa-school"></i></div>
+                <div>
+                  <span class="c-label">Institution</span>
+                  <span class="c-val">International Institute of Hotel Management (IIHM)</span>
+                </div>
+              </div>
+
+              <div class="contact-detail-card">
+                <div class="c-icon gold-badge"><i class="fa-solid fa-map-pin"></i></div>
+                <div>
+                  <span class="c-label">Campus Location</span>
+                  <span class="c-val">IIHM Hyderabad Campus, Telangana, India</span>
+                </div>
+              </div>
+
+              <div class="contact-detail-card">
+                <div class="c-icon gold-badge"><i class="fa-solid fa-clock"></i></div>
+                <div>
+                  <span class="c-label">Office Hours</span>
+                  <span class="c-val">Mon - Fri: 09:00 AM - 05:00 PM IST</span>
+                </div>
+              </div>
+
+              <div class="contact-detail-card">
+                <div class="c-icon gold-badge"><i class="fa-solid fa-phone-volume"></i></div>
+                <div>
+                  <span class="c-label">Official Direct Line</span>
+                  <a href="tel:07995581756" class="c-val gold-link">07995581756</a>
+                </div>
+              </div>
+
+              <!-- IIHM Official Social & Institutional Channels -->
+              <div class="social-channels-block">
+                <div class="social-block-header">
+                  <span class="social-kicker"><i class="fa-solid fa-shield-halved"></i> VERIFIED INSTITUTIONAL
+                    CHANNELS</span>
+                  <h4 class="social-block-title">Follow & Connect with IIHM Hyderabad</h4>
+                  <p class="social-block-sub">Official campus portals, multimedia showcases, and interactive maps.</p>
+                </div>
+
+                <div class="social-cards-grid">
+                  <!-- Instagram -->
+                  <a href="https://www.instagram.com/iihmhyderabad/?hl=en" target="_blank" rel="noopener noreferrer"
+                    class="social-card social-instagram" aria-label="Follow IIHM Hyderabad on Instagram">
+                    <div class="social-card-icon-wrap ig-bg">
+                      <svg class="social-brand-svg" viewBox="0 0 24 24" width="28" height="28" fill="none"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                          <radialGradient id="contact-ig-grad" cx="0.18" cy="1" r="1.18">
+                            <stop offset="0%" stop-color="#ffd521" />
+                            <stop offset="10%" stop-color="#f5a200" />
+                            <stop offset="35%" stop-color="#f02849" />
+                            <stop offset="65%" stop-color="#c13584" />
+                            <stop offset="100%" stop-color="#833ab4" />
+                          </radialGradient>
+                        </defs>
+                        <rect x="1.5" y="1.5" width="21" height="21" rx="5.8" fill="url(#contact-ig-grad)" />
+                        <rect x="4.5" y="4.5" width="15" height="15" rx="3.8" fill="none" stroke="#ffffff"
+                          stroke-width="1.8" />
+                        <circle cx="12" cy="12" r="3.75" fill="none" stroke="#ffffff" stroke-width="1.8" />
+                        <circle cx="16.5" cy="7.5" r="1.15" fill="#ffffff" />
+                      </svg>
+                    </div>
+                    <div class="social-card-info">
+                      <div class="social-title-row">
+                        <span class="social-platform-name">Instagram</span>
+                        <span class="verified-badge" title="Official Verified Profile"><i
+                            class="fa-solid fa-circle-check"></i></span>
+                      </div>
+                      <span class="social-handle">@iihmhyderabad</span>
+                      <span class="social-desc">Campus life, masterclasses & student spotlights</span>
+                    </div>
+                    <div class="social-card-action">
+                      <span class="action-text">Follow</span>
+                      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </div>
+                  </a>
+
+                  <!-- YouTube -->
+                  <a href="https://www.youtube.com/hashtag/iihmhyderabad" target="_blank" rel="noopener noreferrer"
+                    class="social-card social-youtube" aria-label="Watch IIHM Hyderabad on YouTube">
+                    <div class="social-card-icon-wrap yt-bg">
+                      <svg class="social-brand-svg" viewBox="0 0 28 20" width="30" height="22" fill="none"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                          d="M27.42 3.08a3.5 3.5 0 0 0-2.46-2.47C22.78 0 14 0 14 0S5.22 0 3.04.61A3.5 3.5 0 0 0 .58 3.08C0 5.27 0 10 0 10s0 4.73.58 6.92a3.5 3.5 0 0 0 2.46 2.47C5.22 20 14 20 14 20s8.78 0 10.96-.61a3.5 3.5 0 0 0 2.46-2.47C28 14.73 28 10 28 10s0-4.73-.58-6.92z"
+                          fill="#FF0000" />
+                        <polygon points="11.2,14.3 18.5,10 11.2,5.7" fill="#FFFFFF" />
+                      </svg>
+                    </div>
+                    <div class="social-card-info">
+                      <div class="social-title-row">
+                        <span class="social-platform-name">YouTube</span>
+                        <span class="verified-badge yt" title="Official Video Channel"><i
+                            class="fa-solid fa-circle-check"></i></span>
+                      </div>
+                      <span class="social-handle">#iihmhyderabad</span>
+                      <span class="social-desc">Hospitality events, master lectures & recaps</span>
+                    </div>
+                    <div class="social-card-action">
+                      <span class="action-text">Watch</span>
+                      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </div>
+                  </a>
+
+                  <!-- Official Campus Website -->
+                  <a href="https://iihm.ac.in/hyderabad-campus" target="_blank" rel="noopener noreferrer"
+                    class="social-card social-website" aria-label="Visit IIHM Hyderabad Official Campus Website">
+                    <div class="social-card-icon-wrap crest-bg">
+                      <img src="public/images/iihm_official_logo.png" alt="IIHM Official Emblem"
+                        class="social-crest-logo">
+                    </div>
+                    <div class="social-card-info">
+                      <div class="social-title-row">
+                        <span class="social-platform-name">Official Website</span>
+                        <span class="verified-badge gold" title="Institutional Accreditation Portal"><i
+                            class="fa-solid fa-crown"></i></span>
+                      </div>
+                      <span class="social-handle">iihm.ac.in/hyderabad-campus</span>
+                      <span class="social-desc">Admissions, global UK degree accreditations & syllabus</span>
+                    </div>
+                    <div class="social-card-action">
+                      <span class="action-text">Explore</span>
+                      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </div>
+                  </a>
+
+                  <!-- Google Maps -->
+                  <a href="https://maps.app.goo.gl/VcxRrhtAaQmZ6JaG7" target="_blank" rel="noopener noreferrer"
+                    class="social-card social-maps" aria-label="Open IIHM Hyderabad Campus on Google Maps">
+                    <div class="social-card-icon-wrap maps-bg">
+                      <svg class="social-brand-svg" viewBox="0 0 32 44" width="22" height="30" fill="none"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                          d="M16 0C7.16 0 0 7.16 0 16c0 12.06 14.37 26.65 15.02 27.29a1.4 1.4 0 0 0 1.96 0C17.63 42.65 32 28.06 32 16 32 7.16 24.84 0 16 0z"
+                          fill="#EA4335" />
+                        <path d="M16 0C7.16 0 0 7.16 0 16c0 3.86 1.38 7.41 3.7 10.18L16 12.2V0z" fill="#4285F4" />
+                        <path d="M3.7 26.18C6.1 29.98 9.5 34.52 16 41.5V26.18H3.7z" fill="#34A853" />
+                        <path d="M28.3 26.18C25.9 29.98 22.5 34.52 16 41.5V26.18h12.3z" fill="#FBBC04" />
+                        <circle cx="16" cy="15" r="5.5" fill="#FFFFFF" />
+                        <circle cx="16" cy="15" r="3" fill="#1A73E8" />
+                      </svg>
+                    </div>
+                    <div class="social-card-info">
+                      <div class="social-title-row">
+                        <span class="social-platform-name">Google Maps</span>
+                        <span class="verified-badge green" title="Verified Campus Destination"><i
+                            class="fa-solid fa-location-dot"></i></span>
+                      </div>
+                      <span class="social-handle">IIHM Hyderabad Campus</span>
+                      <span class="social-desc">Turn-by-turn navigation, reviews & street view</span>
+                    </div>
+                    <div class="social-card-action">
+                      <span class="action-text">Navigate</span>
+                      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </div>
+                  </a>
+
+                  <!-- LinkedIn - Dynamic Faculty -->
+                  <a href="https://www.linkedin.com/in/naveen-kumar-8a40bb170" target="_blank" rel="noopener noreferrer"
+                    class="social-card social-linkedin" id="contact-linkedin-card"
+                    aria-label="Connect with Faculty on LinkedIn">
+                    <div class="social-card-icon-wrap linkedin-bg">
+                      <svg class="social-brand-svg" viewBox="0 0 24 24" width="26" height="26" fill="#0A66C2"
+                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path
+                          d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                          fill="#0A66C2" />
+                      </svg>
+                    </div>
+                    <div class="social-card-info">
+                      <div class="social-title-row">
+                        <span class="social-platform-name">LinkedIn Profile</span>
+                        <span class="verified-badge" style="color: #0A66C2;" title="Verified Faculty Network"><i
+                            class="fa-solid fa-circle-check"></i></span>
+                      </div>
+                      <span class="social-handle" id="contact-linkedin-handle">Mr. Naveen Kumar</span>
+                      <span class="social-desc" id="contact-linkedin-desc">Professional network, academic pedagogy &
+                        career connections</span>
+                    </div>
+                    <div class="social-card-action">
+                      <span class="action-text">Connect</span>
+                      <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Direct Faculty Engagement Channels -->
+            <div class="contact-channels-col">
+              <h3 id="channels-col-title">Academic Office Channels</h3>
+              <p id="channels-col-desc">Direct communication routes for students, parents, and hospitality corporate
+                recruiters.</p>
+
+              <div class="channel-cards-grid">
+                <a href="mailto:naveen.kumar@iihmhyderabad.com?subject=Academic%20Advisement%20Request%20-%20IIHM%20Hyderabad"
+                  class="channel-card glass-panel" id="channel-email-card">
+                  <div class="channel-icon gold-badge"><i class="fa-solid fa-paper-plane"></i></div>
+                  <div class="channel-text">
+                    <h4 id="channel-email-title">Official Academic Email</h4>
+                    <span class="channel-desc" id="channel-email-desc">Direct correspondence to Mr. Naveen Kumar's
+                      official inbox</span>
+                    <span class="channel-action" id="channel-email-action">naveen.kumar@iihmhyderabad.com &rarr;</span>
+                  </div>
+                </a>
+
+                <div class="channel-card glass-panel" id="open-consultation-dossier" style="cursor: pointer;">
+                  <div class="channel-icon gold-badge"><i class="fa-solid fa-calendar-check"></i></div>
+                  <div class="channel-text">
+                    <h4>Academic Consultation & Dossier</h4>
+                    <span class="channel-desc">Schedule personal mentoring session or review institutional
+                      credentials</span>
+                    <span class="channel-action">Open Faculty Dossier &rarr;</span>
+                  </div>
+                </div>
+
+                <a href="mailto:naveen.kumar@iihmhyderabad.com?subject=Rooms%20Division%20Placement%20%26%20Industry%20Collaboration"
+                  class="channel-card glass-panel" id="channel-placement-card">
+                  <div class="channel-icon gold-badge"><i class="fa-solid fa-handshake-angle"></i></div>
+                  <div class="channel-text">
+                    <h4 id="channel-placement-title">Corporate Placements & Internships</h4>
+                    <span class="channel-desc" id="channel-placement-desc">Collaborate on 5-star brand management
+                      trainee placements</span>
+                    <span class="channel-action">Initiate Industry Connect &rarr;</span>
+                  </div>
+                </a>
+
+                <a href="mailto:naveen.kumar@iihmhyderabad.com?subject=Campus%20Visit%20%26%20Rooms%20Division%20Lab%20Tour"
+                  class="channel-card glass-panel" id="channel-tour-card">
+                  <div class="channel-icon gold-badge"><i class="fa-solid fa-hotel"></i></div>
+                  <div class="channel-text">
+                    <h4 id="channel-tour-title">Executive Simulation Suite Tour</h4>
+                    <span class="channel-desc" id="channel-tour-desc">Experience IIHM Hyderabad's front office & mock
+                      presidential suite</span>
+                    <span class="channel-action">Request Campus Tour &rarr;</span>
+                  </div>
+                </a>
+
+                <a href="tel:07995581756" class="channel-card glass-panel"
+                  title="Call IIHM Hyderabad Official Direct Line">
+                  <div class="channel-icon gold-badge"><i class="fa-solid fa-phone-volume"></i></div>
+                  <div class="channel-text">
+                    <h4>Official Telephonic Inquiry</h4>
+                    <span class="channel-desc">Direct hotline for candidate admissions, parents & industry
+                      advisement</span>
+                    <span class="channel-action">Call 07995581756 &rarr;</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container footer-content">
+        <div class="footer-brand">
+          <img src="public/images/iihm_official_logo.png" alt="IIHM Official Logo" class="footer-crest">
+          <div>
+            <span class="f-title">INTERNATIONAL INSTITUTE OF HOTEL MANAGEMENT</span>
+            <span class="f-sub">Hyderabad Campus • Faculty Portfolio Directory</span>
+          </div>
+        </div>
+
+        <!-- Professional Social Channels in Footer -->
+        <div class="footer-social-col">
+          <span class="footer-social-label">Official Campus Channels:</span>
+          <div class="footer-social-links">
+            <a href="https://www.instagram.com/iihmhyderabad/?hl=en" target="_blank" rel="noopener noreferrer"
+              class="footer-social-pill" aria-label="IIHM Hyderabad Instagram">
+              <svg class="footer-brand-svg" viewBox="0 0 24 24" width="18" height="18" fill="none" aria-hidden="true">
+                <defs>
+                  <radialGradient id="ft-ig-grad" cx="0.18" cy="1" r="1.18">
+                    <stop offset="0%" stop-color="#ffd521" />
+                    <stop offset="10%" stop-color="#f5a200" />
+                    <stop offset="35%" stop-color="#f02849" />
+                    <stop offset="65%" stop-color="#c13584" />
+                    <stop offset="100%" stop-color="#833ab4" />
+                  </radialGradient>
+                </defs>
+                <rect x="1.5" y="1.5" width="21" height="21" rx="5.8" fill="url(#ft-ig-grad)" />
+                <rect x="4.5" y="4.5" width="15" height="15" rx="3.8" fill="none" stroke="#ffffff" stroke-width="1.8" />
+                <circle cx="12" cy="12" r="3.75" fill="none" stroke="#ffffff" stroke-width="1.8" />
+                <circle cx="16.5" cy="7.5" r="1.15" fill="#ffffff" />
+              </svg>
+              <span>Instagram</span>
+            </a>
+            <a href="https://www.youtube.com/hashtag/iihmhyderabad" target="_blank" rel="noopener noreferrer"
+              class="footer-social-pill" aria-label="IIHM Hyderabad YouTube">
+              <svg class="footer-brand-svg" viewBox="0 0 28 20" width="20" height="14" fill="none" aria-hidden="true">
+                <path
+                  d="M27.42 3.08a3.5 3.5 0 0 0-2.46-2.47C22.78 0 14 0 14 0S5.22 0 3.04.61A3.5 3.5 0 0 0 .58 3.08C0 5.27 0 10 0 10s0 4.73.58 6.92a3.5 3.5 0 0 0 2.46 2.47C5.22 20 14 20 14 20s8.78 0 10.96-.61a3.5 3.5 0 0 0 2.46-2.47C28 14.73 28 10 28 10s0-4.73-.58-6.92z"
+                  fill="#FF0000" />
+                <polygon points="11.2,14.3 18.5,10 11.2,5.7" fill="#FFFFFF" />
+              </svg>
+              <span>YouTube</span>
+            </a>
+            <a href="https://iihm.ac.in/hyderabad-campus" target="_blank" rel="noopener noreferrer"
+              class="footer-social-pill" aria-label="IIHM Hyderabad Campus Website">
+              <img src="public/images/iihm_official_logo.png" alt="IIHM Logo" class="footer-crest-logo">
+              <span>Portal</span>
+            </a>
+            <a href="https://maps.app.goo.gl/VcxRrhtAaQmZ6JaG7" target="_blank" rel="noopener noreferrer"
+              class="footer-social-pill" aria-label="IIHM Hyderabad Campus on Google Maps">
+              <svg class="footer-brand-svg" viewBox="0 0 32 44" width="16" height="22" fill="none" aria-hidden="true">
+                <path
+                  d="M16 0C7.16 0 0 7.16 0 16c0 12.06 14.37 26.65 15.02 27.29a1.4 1.4 0 0 0 1.96 0C17.63 42.65 32 28.06 32 16 32 7.16 24.84 0 16 0z"
+                  fill="#EA4335" />
+                <path d="M16 0C7.16 0 0 7.16 0 16c0 3.86 1.38 7.41 3.7 10.18L16 12.2V0z" fill="#4285F4" />
+                <path d="M3.7 26.18C6.1 29.98 9.5 34.52 16 41.5V26.18H3.7z" fill="#34A853" />
+                <path d="M28.3 26.18C25.9 29.98 22.5 34.52 16 41.5V26.18h12.3z" fill="#FBBC04" />
+                <circle cx="16" cy="15" r="5.5" fill="#FFFFFF" />
+                <circle cx="16" cy="15" r="3" fill="#1A73E8" />
+              </svg>
+              <span>Directions</span>
+            </a>
+            <a href="https://www.linkedin.com/in/naveen-kumar-8a40bb170" target="_blank" rel="noopener noreferrer"
+              class="footer-social-pill" aria-label="Mr. Naveen Kumar on LinkedIn">
+              <svg class="footer-brand-svg" viewBox="0 0 24 24" width="16" height="16" fill="#0A66C2"
+                aria-hidden="true">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  fill="#0A66C2" />
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <p>© 2026 IIHM Hyderabad. Designed for Mr. Naveen Kumar, Faculty of Rooms Division.</p>
+          <p>Official Contact: <a href="mailto:naveen.kumar@iihmhyderabad.com"
+              class="gold-link">naveen.kumar@iihmhyderabad.com</a> • Direct Hotline: <a href="tel:07995581756"
+              class="gold-link"><i class="fa-solid fa-phone" style="font-size:0.75rem;"></i> 07995581756</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- DOSSIER MODAL -->
+  <dialog id="dossier-modal" class="dossier-modal glass-panel" closedby="any">
+    <div class="modal-drag-handle" aria-hidden="true"></div>
+    <div class="modal-header">
+      <div class="modal-title-group">
+        <span class="gold-badge"><i class="fa-solid fa-award"></i> OFFICIAL DOSSIER</span>
+        <h3 id="dossier-modal-heading">Mr. Naveen Kumar — Academic Profile</h3>
+      </div>
+      <button id="close-modal-btn" class="btn-icon" aria-label="Close modal">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="dossier-banner">
+        <img src="public/images/naveen_kumar.jpg" alt="" class="dossier-avatar" id="dossier-avatar">
+        <div>
+          <h4 id="dossier-name">Mr. Naveen Kumar</h4>
+          <p class="gold-text" id="dossier-role-title">Faculty — Department of Rooms Division</p>
+          <p class="campus-sub"><i class="fa-solid fa-location-dot"></i> IIHM Hyderabad Campus</p>
+          <div class="dossier-social-row">
+            <a href="https://www.instagram.com/iihmhyderabad/?hl=en" target="_blank" rel="noopener noreferrer"
+              class="dossier-social-chip" title="Instagram">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none">
+                <rect x="1.5" y="1.5" width="21" height="21" rx="5.8" fill="url(#contact-ig-grad)" />
+                <rect x="4.5" y="4.5" width="15" height="15" rx="3.8" fill="none" stroke="#fff" stroke-width="1.8" />
+                <circle cx="12" cy="12" r="3.75" fill="none" stroke="#fff" stroke-width="1.8" />
+                <circle cx="16.5" cy="7.5" r="1.15" fill="#fff" />
+              </svg>
+              <span>Instagram</span>
+            </a>
+            <a href="https://www.youtube.com/hashtag/iihmhyderabad" target="_blank" rel="noopener noreferrer"
+              class="dossier-social-chip" title="YouTube">
+              <svg viewBox="0 0 28 20" width="16" height="12" fill="none">
+                <path
+                  d="M27.42 3.08a3.5 3.5 0 0 0-2.46-2.47C22.78 0 14 0 14 0S5.22 0 3.04.61A3.5 3.5 0 0 0 .58 3.08C0 5.27 0 10 0 10s0 4.73.58 6.92a3.5 3.5 0 0 0 2.46 2.47C5.22 20 14 20 14 20s8.78 0 10.96-.61a3.5 3.5 0 0 0 2.46-2.47C28 14.73 28 10 28 10s0-4.73-.58-6.92z"
+                  fill="#FF0000" />
+                <polygon points="11.2,14.3 18.5,10 11.2,5.7" fill="#FFFFFF" />
+              </svg>
+              <span>YouTube</span>
+            </a>
+            <a href="https://iihm.ac.in/hyderabad-campus" target="_blank" rel="noopener noreferrer"
+              class="dossier-social-chip" title="IIHM Official Website">
+              <img src="public/images/iihm_official_logo.png" alt="IIHM Logo"
+                style="width: 14px; height: 14px; object-fit: contain;">
+              <span>Portal</span>
+            </a>
+            <a href="https://maps.app.goo.gl/VcxRrhtAaQmZ6JaG7" target="_blank" rel="noopener noreferrer"
+              class="dossier-social-chip" title="Google Maps">
+              <svg viewBox="0 0 32 44" width="12" height="17" fill="none">
+                <path
+                  d="M16 0C7.16 0 0 7.16 0 16c0 12.06 14.37 26.65 15.02 27.29a1.4 1.4 0 0 0 1.96 0C17.63 42.65 32 28.06 32 16 32 7.16 24.84 0 16 0z"
+                  fill="#EA4335" />
+                <path d="M16 0C7.16 0 0 7.16 0 16c0 3.86 1.38 7.41 3.7 10.18L16 12.2V0z" fill="#4285F4" />
+                <path d="M3.7 26.18C6.1 29.98 9.5 34.52 16 41.5V26.18H3.7z" fill="#34A853" />
+                <path d="M28.3 26.18C25.9 29.98 22.5 34.52 16 41.5V26.18h12.3z" fill="#FBBC04" />
+                <circle cx="16" cy="15" r="5.5" fill="#FFFFFF" />
+                <circle cx="16" cy="15" r="3" fill="#1A73E8" />
+              </svg>
+              <span>Maps</span>
+            </a>
+            <a href="https://www.linkedin.com/in/naveen-kumar-8a40bb170" target="_blank" rel="noopener noreferrer"
+              class="dossier-social-chip" id="dossier-linkedin-chip" title="Connect on LinkedIn">
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="#0A66C2">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  fill="#0A66C2" />
+              </svg>
+              <span id="dossier-linkedin-text">LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <hr class="modal-divider">
+      <div class="dossier-content-sections" id="dossier-content-sections">
+        <div class="dossier-item">
+          <h5><i class="fa-solid fa-graduation-cap gold-icon"></i> Academic Pedagogy</h5>
+          <p>Over a decade of academic instruction preparing students for UK Bachelor's Degrees in Hospitality
+            Management accredited in partnership with University of West London.</p>
+        </div>
+        <div class="dossier-item">
+          <h5><i class="fa-solid fa-hotel gold-icon"></i> Industry Competency</h5>
+          <p>Proven track record across international luxury hotel brands, PMS enterprise systems (Oracle Hospitality
+            Opera, IDS Next), room inventory auditing, and housekeeping quality assurance.</p>
+        </div>
+        <div class="dossier-item">
+          <h5><i class="fa-solid fa-globe gold-icon"></i> Global Placements Mentored</h5>
+          <p>Mentored numerous students who have secured management trainee roles in Marriott International, The Oberoi
+            Group, Taj Hotels, Accor, and Hyatt across Dubai, London, and Singapore.</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a href="tel:07995581756" class="btn btn-outline-gold" title="Call IIHM Hyderabad Office" id="dossier-phone-btn">
+        <i class="fa-solid fa-phone"></i> Call 07995581756
+      </a>
+      <a href="mailto:naveen.kumar@iihmhyderabad.com?subject=Inquiry%20regarding%20Academic%20Dossier"
+        class="btn btn-gold" id="dossier-email-btn">
+        <i class="fa-solid fa-envelope"></i> <span id="dossier-email-btn-text">Email Mr. Naveen Kumar</span>
+      </a>
+      <button id="close-modal-action-btn" class="btn btn-glass">Close</button>
+    </div>
+  </dialog>
+
+  <!-- Script Modules -->
+  <script src="public/js/faculty-data.js"></script>
+  <script src="public/js/spotlight-card.js"></script>
+  <script src="globe.js"></script>
+  <script src="public/js/three.min.js"></script>
+  <script src="public/js/card-textures.js"></script>
+  <script src="public/js/lanyard.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+{
+  "name": "iihm-faculty-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "IIHM Hyderabad - Multi-Faculty Interactive Academic Portfolio",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  }
+}
