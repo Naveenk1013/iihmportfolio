@@ -4,7 +4,6 @@
   "private": true,
   "description": "IIHM Hyderabad - Multi-Faculty Interactive Academic Portfolio",
   "scripts": {
-    "start": "node server.js",
     "dev": "node server.js"
   }
 }
