@@ -17,7 +17,12 @@
   const FACULTIES = {
     'earnest-immanuel': {
       id: 'earnest-immanuel',
-      aliases: ['director', 'earnest', 'earnest-johnpaul', 'director-iihm'],
+      aliases: [
+        'director', 'earnest', 'earnest-johnpaul', 'director-iihm', 'earnest-immanuel-johnpaul',
+        'earnest-emanuel', 'earnestemanuel', 'earnest-emanual', 'earnestemanual',
+        'earnest-emmanuel', 'earnestemmanuel', 'earnest-immanuel', 'earnestimmanuel',
+        'earnest-immanuel-john-paul', 'earnest-john-paul'
+      ],
       name: 'Earnest Immanuel Johnpaul',
       honorific: 'Mr.',
       fullName: 'Mr. Earnest Immanuel Johnpaul',
@@ -191,11 +196,13 @@
    */
   function getFacultyById(query) {
     if (!query) return null;
-    const clean = String(query).trim().toLowerCase().replace(/^\//, '');
+    const raw = String(query).trim().toLowerCase().replace(/^\//, '');
+    const clean = raw.replace(/[\s_+]+/g, '-');
     if (FACULTIES[clean]) return FACULTIES[clean];
+    if (FACULTIES[raw]) return FACULTIES[raw];
     for (const key in FACULTIES) {
       const f = FACULTIES[key];
-      if (f.id === clean || (f.aliases && f.aliases.includes(clean))) {
+      if (f.id === clean || f.id === raw || (f.aliases && (f.aliases.includes(clean) || f.aliases.includes(raw)))) {
         return f;
       }
     }

@@ -584,6 +584,9 @@
       // Notify window & 3D lanyard engine that container has gained visible geometry
       requestAnimationFrame(() => {
         window.dispatchEvent(new Event('resize'));
+        if (window.hydrateFacultyProfile && window.FacultyDB) {
+          window.hydrateFacultyProfile(window.FacultyDB.getCurrentFaculty());
+        }
         if (window.lanyardBadge && typeof window.lanyardBadge.resize === 'function') {
           window.lanyardBadge.resize();
         } else if (window.reloadLanyardTextures && window.FacultyDB) {

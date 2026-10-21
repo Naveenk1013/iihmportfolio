@@ -5,7 +5,7 @@
  * ============================================================================
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function initApp() {
   'use strict';
 
   // State
@@ -274,9 +274,36 @@ document.addEventListener('DOMContentLoaded', () => {
       `).join('');
     }
 
-    // 1.11 Re-render 3D Lanyard Card with Faculty Textures
+    // 1.11 Footer Details
+    const footerLinkedinLink = document.getElementById('footer-linkedin-link');
+    if (footerLinkedinLink) {
+      footerLinkedinLink.href = faculty.linkedin;
+      footerLinkedinLink.setAttribute('aria-label', `${faculty.name} on LinkedIn`);
+    }
+
+    const footerCopyrightText = document.getElementById('footer-copyright-text');
+    if (footerCopyrightText) {
+      footerCopyrightText.textContent = `© 2026 IIHM Hyderabad. Academic portfolio of ${faculty.fullName}, ${faculty.shortRole}.`;
+    }
+
+    const footerContactEmail = document.getElementById('footer-contact-email');
+    if (footerContactEmail) {
+      footerContactEmail.href = `mailto:${faculty.email}`;
+      footerContactEmail.textContent = faculty.email;
+    }
+
+    const footerContactPhone = document.getElementById('footer-contact-phone');
+    if (footerContactPhone) {
+      footerContactPhone.href = `tel:${faculty.phone}`;
+      footerContactPhone.innerHTML = `<i class="fa-solid fa-phone" style="font-size:0.75rem;"></i> ${faculty.phone}`;
+    }
+
+    // 1.12 Re-render 3D Lanyard Card with Faculty Textures
     await reloadLanyardTextures(faculty);
   }
+
+  // Expose hydrateFacultyProfile on window early
+  window.hydrateFacultyProfile = hydrateFacultyProfile;
 
   // ==========================================================================
   // 2. 3D LANYARD COMPONENT LIFECYCLE & TEXTURE REFRESH
@@ -424,7 +451,34 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================================================
-  // 5. MOBILE NAVIGATION DRAWER & TOUCH ERGONOMICS
+  // 5. DOSSIER MODAL SETUP
+  // ==========================================================================
+  const dossierModal = document.getElementById('dossier-modal');
+  const viewDossierBtn = document.getElementById('view-dossier-btn');
+  const closeModalBtn = document.getElementById('close-modal-btn');
+  const closeModalActionBtn = document.getElementById('close-modal-action-btn');
+  const openConsultationBtn = document.getElementById('open-consultation-dossier');
+
+  if (dossierModal) {
+    if (viewDossierBtn) viewDossierBtn.addEventListener('click', () => dossierModal.showModal());
+    if (openConsultationBtn) openConsultationBtn.addEventListener('click', () => dossierModal.showModal());
+    if (closeModalBtn) closeModalBtn.addEventListener('click', () => dossierModal.close());
+    if (closeModalActionBtn) closeModalActionBtn.addEventListener('click', () => dossierModal.close());
+
+    dossierModal.addEventListener('click', (e) => {
+      const rect = dossierModal.getBoundingClientRect();
+      const inDialog = (
+        rect.top <= e.clientY &&
+        e.clientY <= rect.top + rect.height &&
+        rect.left <= e.clientX &&
+        e.clientX <= rect.left + rect.width
+      );
+      if (!inDialog) dossierModal.close();
+    });
+  }
+
+  // ==========================================================================
+  // 6. MOBILE NAVIGATION DRAWER & TOUCH ERGONOMICS
   // ==========================================================================
   const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
   const closeMobileMenuBtn = document.getElementById('close-mobile-menu-btn');
@@ -510,33 +564,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================================================
-  // 6. DOSSIER MODAL SETUP
-  // ==========================================================================
-  const dossierModal = document.getElementById('dossier-modal');
-  const viewDossierBtn = document.getElementById('view-dossier-btn');
-  const closeModalBtn = document.getElementById('close-modal-btn');
-  const closeModalActionBtn = document.getElementById('close-modal-action-btn');
-  const openConsultationBtn = document.getElementById('open-consultation-dossier');
-
-  if (dossierModal) {
-    if (viewDossierBtn) viewDossierBtn.addEventListener('click', () => dossierModal.showModal());
-    if (openConsultationBtn) openConsultationBtn.addEventListener('click', () => dossierModal.showModal());
-    if (closeModalBtn) closeModalBtn.addEventListener('click', () => dossierModal.close());
-    if (closeModalActionBtn) closeModalActionBtn.addEventListener('click', () => dossierModal.close());
-
-    dossierModal.addEventListener('click', (e) => {
-      const rect = dossierModal.getBoundingClientRect();
-      const inDialog = (
-        rect.top <= e.clientY &&
-        e.clientY <= rect.top + rect.height &&
-        rect.left <= e.clientX &&
-        e.clientX <= rect.left + rect.width
-      );
-      if (!inDialog) dossierModal.close();
-    });
-  }
-
-  // ==========================================================================
   // 7. SMOOTH ANCHOR LINK NAVIGATION
   // ==========================================================================
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -563,4 +590,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const initialFaculty = window.FacultyDB.getCurrentFaculty();
     hydrateFacultyProfile(initialFaculty);
   }
-});
+}
+
+// Run on load or immediately if document is already ready
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
